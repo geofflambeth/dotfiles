@@ -1,0 +1,17 @@
+require("config.lazy")
+
+vim.opt.mouse = 'a'
+vim.opt.number = true
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Update some general keymaps
+-- Use escape key to leave terminal insert mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+
+vim.cmd.colorscheme 'catppuccin-mocha'
