@@ -10,4 +10,5 @@ done
 DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 # link all dotfiles to config folder
+mkdir -p $HOME/.config
 ln -s $DIR/nvim $HOME/.config/nvim
