@@ -11,5 +11,8 @@ fi
 
 
 # link all dotfiles to config folder
+# create main .config folder
 mkdir -p $HOME/.config
+# install neovim configs
 ln -s $INSTALL_DIR/nvim $HOME/.config/nvim
+nvim --headless "+Lazy! sync" +qa
