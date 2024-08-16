@@ -12,6 +12,10 @@ fi
 # link all dotfiles to config folder
 # create main .config folder
 mkdir -p $HOME/.config
+
 # install neovim configs
 ln -sfn $INSTALL_DIR/nvim $HOME/.config/nvim
 nvim --headless "+Lazy! sync" +qa
+# install i3 configs
+# TODO add better logic later so that this only runs on the installs that need it
+ln -sfn $INSTALL_DIR/i3 $HOME/.config/i3
