@@ -19,3 +19,11 @@ nvim --headless "+Lazy! sync" +qa
 # install i3 configs
 # TODO add better logic later so that this only runs on the installs that need it
 ln -sfn $INSTALL_DIR/i3 $HOME/.config/i3
+ln -sfn $INSTALL_DIR/rofi $HOME/.config/rofi
+
+# symlink themes, icons, fonts, and other globals
+ln -sfn $INSTALL_DIR/themes $HOME/.themes
+ln -sfn $INSTALL_DIR/icons $HOME/.icons
+ln -sfn $INSTALL_DIR/fonts $HOME/.fonts
+
+
