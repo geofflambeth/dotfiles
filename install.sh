@@ -16,6 +16,7 @@ mkdir -p $HOME/.config
 # install neovim configs
 ln -sfn $INSTALL_DIR/nvim $HOME/.config/nvim
 nvim --headless "+Lazy! sync" +qa
+
 # install i3 configs
 # TODO add better logic later so that this only runs on the installs that need it
 ln -sfn $INSTALL_DIR/i3 $HOME/.config/i3
@@ -26,4 +27,7 @@ ln -sfn $INSTALL_DIR/themes $HOME/.themes
 ln -sfn $INSTALL_DIR/icons $HOME/.icons
 ln -sfn $INSTALL_DIR/fonts $HOME/.fonts
 
+# symlink VS Code config files
 
+ln -sfn $INSTALL_DIR/Code/keybindings.json $HOME/.config/Code/User/keybindings.json
+ln -sfn $INSTALL_DIR/Code/settings.json $HOME/.config/Code/User/settings.json

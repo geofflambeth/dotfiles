@@ -1,0 +1,7 @@
+// This is a test
+// Place your key bindings in this file to override the defaults
+[
+    // Toggle between terminal and editor focus
+    { "key": "cmd+'", "command": "workbench.action.terminal.focus"},
+    { "key": "cmd+'", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
+]
