@@ -50,4 +50,5 @@ rm $HOME/.config/nvim
 ln -sfn $DOTFILES_ROOT/nvim $HOME/.config/nvim
 nvim --headless "+Lazy! sync" +qa
 # install code-server configs
+code-server --version && code-server --install-extension asvetliakov.vscode-neovim
 ln -sfn $DOTFILES_ROOT/code-server/keybindings.json $HOME/.local/share/code-server/User/keybindings.json
