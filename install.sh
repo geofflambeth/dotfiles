@@ -46,5 +46,8 @@ fi
 # create main .config folder
 mkdir -p $HOME/.config
 # install neovim configs
-ln -sfn ./nvim $HOME/.config/nvim
+rm $HOME/.config/nvim
+ln -sfn $DOTFILES_ROOT/nvim $HOME/.config/nvim
 nvim --headless "+Lazy! sync" +qa
+# install code-server configs
+ln -sfn $DOTFILES_ROOT/code-server/keybindings.json $HOME/.local/share/code-server/User/keybindings.json
