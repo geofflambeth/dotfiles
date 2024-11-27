@@ -47,7 +47,7 @@ if [[ $DOTFILES_ROOT != $HOME/.dotfiles ]]; then
   ln -sfn $DOTFILES_ROOT $HOME/.dotfiles
 fi
 
-# link all dotfiles to config folder
+# link all dotfiles to appropriate config folders
 # create main .config folder
 mkdir -p $HOME/.config
 # install neovim configs
@@ -56,3 +56,7 @@ ln -sfn $DOTFILES_ROOT/nvim $HOME/.config/nvim
 nvim --headless "+Lazy! sync" +qa
 # install code-server configs
 ln -sfn $DOTFILES_ROOT/code-server/keybindings.json $HOME/.local/share/code-server/User/keybindings.json
+
+# bashrc & zshrc
+ln -sfn $DOTFILES_ROOT/dot.bashrc $HOME/.bashrc
+ln -sfn $DOTFILES_ROOT/dot.zshrc $HOME/.zshrc

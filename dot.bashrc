@@ -1,0 +1,1 @@
+alias install-dotfiles="(cd ~/.dotfiles && bash install.sh)"
