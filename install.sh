@@ -42,6 +42,11 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   dpkg -i pandoc*.deb && rm *.deb
 fi
 
+# link dotfiles to the .dotfiles for easy access
+if [[ $DOTFILES_ROOT != $HOME/.dotfiles ]]; then
+  ln -sfn $DOTFILES_ROOT $HOME/.dotfiles
+fi
+
 # link all dotfiles to config folder
 # create main .config folder
 mkdir -p $HOME/.config
@@ -50,5 +55,4 @@ rm $HOME/.config/nvim
 ln -sfn $DOTFILES_ROOT/nvim $HOME/.config/nvim
 nvim --headless "+Lazy! sync" +qa
 # install code-server configs
-code-server --version && code-server --install-extension asvetliakov.vscode-neovim
 ln -sfn $DOTFILES_ROOT/code-server/keybindings.json $HOME/.local/share/code-server/User/keybindings.json
