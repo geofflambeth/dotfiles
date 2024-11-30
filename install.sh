@@ -8,6 +8,9 @@ DOTFILES_INSTALLATION_DIR=$HOME/.dotfiles-installation
 rm -r $DOTFILES_INSTALLATION_DIR
 mkdir $DOTFILES_INSTALLATION_DIR
 
+install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # If linux, install linux stuff
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
@@ -18,8 +21,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
   ./nvim.appimage --appimage-extract
-  rm /usr/local/bin/nvim
-  ln -s $DOTFILES_INSTALLATION_DIR/nvim/squashfs-root/AppRun /usr/local/bin/nvim
+  sudo rm /usr/local/bin/nvim
+  sudo ln -s $DOTFILES_INSTALLATION_DIR/nvim/squashfs-root/AppRun /usr/local/bin/nvim
   nvim --version
 
   # Install lua itself
@@ -27,19 +30,19 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   cd $DOTFILES_INSTALLATION_DIR/lua
   curl -R -O https://www.lua.org/ftp/lua-5.3.5.tar.gz
   tar -zxf lua-5.3.5.tar.gz
-  cd lua-5.3.5 && make linux test && make install
+  cd lua-5.3.5 && make linux test && sudo make install
   
   # Install luarocks pkg manager for neovim
   mkdir $DOTFILES_INSTALLATION_DIR/luarocks
   cd $DOTFILES_INSTALLATION_DIR/luarocks
   curl -R -O http://luarocks.github.io/luarocks/releases/luarocks-3.11.1.tar.gz
   tar -zxf luarocks-3.11.1.tar.gz
-  cd luarocks-3.11.1 && ./configure --with-lua-include=/usr/local/include && make && make install
+  cd luarocks-3.11.1 && ./configure --with-lua-include=/usr/local/include && make && sudo make install
   
   # Install pandoc 2.19.2 -- this is the specific version I prefer, due to compatibility with the pandoc python package
   mkdir $DOTFILES_INSTALLATION_DIR/pandoc && cd $DOTFILES_INSTALLATION_DIR/pandoc
   curl -LO https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb
-  dpkg -i pandoc*.deb && rm *.deb
+  sudo dpkg -i pandoc*.deb && rm *.deb && sudo apt-mark hold pandoc
 fi
 
 # link dotfiles to the .dotfiles for easy access
